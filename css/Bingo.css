@@ -1,0 +1,208 @@
+@font-face {
+	font-family: 'Ubuntu-Regular';
+	src: url('../fonts/Ubuntu-Regular.eot');
+	src: url('../fonts/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Ubuntu-Regular.woff2') format('woff2'),
+		url('../fonts/Ubuntu-Regular.woff') format('woff'),
+		url('../fonts/Ubuntu-Regular.ttf') format('truetype'),
+		url('../fonts/Ubuntu-Regular.svg#Ubuntu-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--pinkDark900: #880e4f;
+	--pinkLight500: #e91e63;
+	--pinkMediumA700: #c51162;
+	--mainWhite: #ffffff;
+	--gray200: #eeeeee;
+	--gray900: #212121;
+	--gray800: #424242;
+	--gray300: #e0e0e0;
+	--gray400: #bdbdbd;
+	--tealbs: #20c997;
+	--infobs: #17a2b8;
+	--purplebs: #6f42c1;
+	--orangebs: #fd7e14;
+	--yellowbs: #eeff07;
+	--lightblue900: #01579b;
+	--blue900: #0d47a1;
+	--lightblue100: #b3e5fc;
+	--deeppurple900: #311b92;
+	--indigo900: #1a237e;
+	--indigo100: #c5cae9;
+
+	--DatiDark: #201335;
+	--DatiPurple: #4f4789;
+	--DatiPurplelight: #4f478915;
+	--DatiLightOrange: #ffb17a;
+	--DatiMarjani: #f97068;
+	--DatiYellow: #fce762;
+	--DatiWhite: #fffded;
+	--DatiBlue: #57c4e5;
+	--DatiBlueOpacity: #57c4e521;
+	--DatiOlive: #d1d646;
+	--DatiOliveOpacity: #d1d64644;
+	--DatiRed: #e23e57;
+	--DatiRedd: #d62828;
+	--DatiReddO40: #d6282821;
+	--DatiOrange: #f77f00;
+
+	--GreenDark: #007e33;
+	--Green: #00c851;
+
+	--PurpleDark: #201335;
+
+	--mainback: #f5f5f5d3;
+	--text: #6f42c1;
+	--back: #4f4789;
+	--purpleLight: #6e42c194;
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(1px, 1px) rotate(0deg);
+	}
+	10% {
+		transform: translate(-1px, -2px) rotate(-1deg);
+	}
+	20% {
+		transform: translate(-3px, 0px) rotate(1deg);
+	}
+	30% {
+		transform: translate(3px, 2px) rotate(0deg);
+	}
+	40% {
+		transform: translate(1px, -1px) rotate(1deg);
+	}
+	50% {
+		transform: translate(-1px, 2px) rotate(-1deg);
+	}
+	60% {
+		transform: translate(-3px, 1px) rotate(0deg);
+	}
+	70% {
+		transform: translate(3px, 1px) rotate(-1deg);
+	}
+	80% {
+		transform: translate(-1px, -1px) rotate(1deg);
+	}
+	90% {
+		transform: translate(1px, 2px) rotate(0deg);
+	}
+	100% {
+		transform: translate(1px, -2px) rotate(-1deg);
+	}
+}
+
+* {
+	text-align: center;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+body {
+	font-family: 'Ubuntu-Regular', 'Courier New', Courier, monospace !important;
+	background-color: whitesmoke;
+}
+
+.wrapper {
+	display: grid;
+	grid-gap: 0px;
+	grid-template-columns: repeat(5, auto);
+	grid-auto-rows: auto;
+	width: 100vw;
+	height: 100vh;
+	padding: 9px 9px 9px 9px;
+	min-width: 200px;
+}
+
+.bingo-cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	background-color: white;
+	border: 1px solid var(--DatiPurple);
+	box-shadow: 0px 1px 6px var(--text);
+	border-radius: 10px;
+	cursor: pointer;
+	width: 18.5vw;
+	height: 17.8vh;
+	transition: all ease-out 300ms;
+}
+
+.bingo-cell:hover {
+	border: 1px solid var(--gray800);
+	z-index: 999;
+	box-shadow: 0px 1px 12px var(--gray800);
+	cursor: pointer;
+	transform: scale(1);
+}
+
+.center-bingo {
+	background-color: var(--DatiPurple);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	border: 1px solid var(--DatiPurple);
+	box-shadow: 0px 1px 12px var(--text);
+	border-radius: 10px;
+	color: white;
+	cursor: default;
+	width: 18.9vw;
+	height: 18.4vh;
+}
+.checked {
+	background-color: var(--gray800);
+	box-shadow: 0px 1px 12px var(--gray800);
+	border: 1px solid var(--gray800);
+	color: white;
+	font-weight: normal;
+	text-decoration-line: line-through;
+	animation: shake 0.5s;
+}
+
+@media screen and (max-width: 900px) {
+	.wrapper {
+		grid-gap: 1px;
+		grid-auto-columns: max-content;
+		width: 100%;
+		font-size: small;
+		padding: 9px 9px 9px 9px;
+	}
+
+	.bingo-cell {
+		padding: 4px 4px 4px 4px;
+		box-shadow: 0px 1px 3px var(--text);
+		font-weight: normal;
+		font-size: 2.9vmin;
+		width: 17.2vw;
+		height: 17.2vh;
+	}
+
+	.center-bingo {
+		font-size: 3vmin;
+		box-shadow: 0px 1px 4px var(--text);
+		width: 17.7vw;
+		height: 17.7vh;
+	}
+}
+@media screen and (max-width: 330px) {
+	* {
+		overflow: auto;
+	}
+
+	.wrapper {
+		grid-gap: 0px;
+	}
+
+	.bingo-cell {
+		padding: 1px 1px 1px 1px;
+		box-shadow: 0px 1px 1px var(--text);
+		font-size: 2.5vmin;
+	}
+}
